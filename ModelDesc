@@ -1,0 +1,25 @@
+
+     Purchase---------
+        |            |
+        |            |
+        |            |
+        |            |
+        V            V
+     electronics   mobile network
+        |                 |
+        |                 |
+        |                 |
+        V                 V
+       Name(Price)      plan(price/month, Gb, mins)
+        |                 |
+        |                 |
+        V                 V
+      Amount          duration
+
+      Личный кабинет
+
+      Базы данных:3
+
+      Ассортимент электроники + ее кол-во на складе
+      Ассортимент тарифов
+      История покупок
