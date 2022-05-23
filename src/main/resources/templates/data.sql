@@ -1,1 +1,0 @@
-INSERT INTO ELECTRONICS (ID, AMOUNT, NAME, PRICE) values (2, 9, 'Iphone', 9);

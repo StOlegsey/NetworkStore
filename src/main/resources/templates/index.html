@@ -3,9 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <title>Hello there</title>
+    <style>
+        body{
+            margin-left: 40%;
+        }
+    </style>
 </head>
 <body>
-    <h1>whasup</h1>
-    <p th:text="${elect}">Electronic</p>
+    <h2>Товары</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Имя</th>
+            <th>Цена</th>
+            <th>Кол-во на складе</th>
+        </tr>
+        <tr th:each="elec:${elecs}">
+            <td th:text="${elec.id}">ID</td>
+            <td th:text="${elec.name}">Название</td>
+            <td th:text="${elec.price}">Цена</td>
+            <td th:text="${elec.amount}">Кол-во</td>
+        </tr>
+    </table>
+    <br>
+    <form action="" method="post">
+        <input type="text" name="eid" placeholder="ID товара" class="form-control">
+        <input type="text" name="eamount" placeholder="Количество" class="form-control">
+        <button type = "submit" class="btn btn-success">Купить</button>
+    </form>
+    <h2>Тарифы</h2>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Имя</th>
+            <th>Цена</th>
+            <th>Гб</th>
+            <th>Мин</th>
+        </tr>
+
+        <tr th:each="plan:${plans}">
+            <td th:text="${plan.id}">ID</td>
+            <td th:text="${plan.name}">Название</td>
+            <td th:text="${plan.price}">Цена</td>
+            <td th:text="${plan.gbs}">Гб</td>
+            <td th:text="${plan.mins}">Мин</td>
+        </tr>
+    </table>
+
 </body>
 </html>

@@ -5,6 +5,8 @@ import com.hw.networkstore.repos.ElectronicsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ElectronicsService {
 
@@ -15,5 +17,11 @@ public class ElectronicsService {
         electronics = electronicsRepository.save(electronics);
 
          return electronics;
+    }
+
+    public Iterable<Electronics> getAllElectronics(){
+        Iterable<Electronics> electronics=  electronicsRepository.findAll();
+
+        return electronics;
     }
 }

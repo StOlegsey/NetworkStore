@@ -18,4 +18,10 @@ public class NetworkPlanService {
 
         return networkPlan;
     }
+
+    public Iterable<NetworkPlan> getAllPlans(){
+        Iterable<NetworkPlan> networkPlans= networkPlanRepository.findAll();
+
+        return networkPlans;
+    }
 }
