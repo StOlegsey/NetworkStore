@@ -21,11 +21,17 @@ public class DataLoader implements ApplicationRunner {
     private final ElectronicsService electronicsService;
     private final PurchaseHistoryService purchaseHistoryService;
 
-    private final Electronics electronics1 = new Electronics("Microwolnovka", 30, 300);
-    private final Electronics electronics2 = new Electronics("Iphone 13", 100, 999);
+    private final Electronics electronics1 = new Electronics("Микроволновка Tide", 30, 300);
+    private final Electronics electronics2 = new Electronics("Iphone 13 Pro 256 Gb/8Gb 64Mp Bright-Blue", 100, 999);
+    private final Electronics electronics3 = new Electronics("Холодильник Intel Xeon", 20, 870);
+    private final Electronics electronics4 = new Electronics("GPU Nvidia GeForce Rx 6700xt", 5, 1999);
+    private final Electronics electronics5 = new Electronics("Кофеварка Philips", 15, 790);
+    private final Electronics electronics6 = new Electronics("Флеш накопитель серый, 128Гб", 185, 5);
 
     private final NetworkPlan networkPlan1 = new NetworkPlan("Тарифищеее", 200, 30, 100);
     private final NetworkPlan networkPlan2 = new NetworkPlan("Разговор", 100, 10, 400);
+    private final NetworkPlan networkPlan3 = new NetworkPlan("Разговор+", 150, 10, 800);
+    private final NetworkPlan networkPlan4 = new NetworkPlan("ДоСвязи", 50, 3, 200);
 
     private final PurchaseHistory purchaseHistory1 = new PurchaseHistory(new Date(),"Microwolnowka");
     private final PurchaseHistory purchaseHistory2 = new PurchaseHistory(new Date(),"Iphone 13");
@@ -40,9 +46,15 @@ public class DataLoader implements ApplicationRunner {
     public void run(ApplicationArguments args){
         electronicsService.addElectronics(electronics1);
         electronicsService.addElectronics(electronics2);
+        electronicsService.addElectronics(electronics3);
+        electronicsService.addElectronics(electronics4);
+        electronicsService.addElectronics(electronics5);
+        electronicsService.addElectronics(electronics6);
 
         networkPlanService.addNetworkPlan(networkPlan1);
         networkPlanService.addNetworkPlan(networkPlan2);
+        networkPlanService.addNetworkPlan(networkPlan3);
+        networkPlanService.addNetworkPlan(networkPlan4);
 
         purchaseHistoryService.addPurchase(purchaseHistory1);
         purchaseHistoryService.addPurchase(purchaseHistory2);

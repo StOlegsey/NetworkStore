@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Hello there</title>
+    <title>Связной</title>
     <style>
         body{
             margin-left: 40%;
@@ -15,7 +15,7 @@
         <tr>
             <th>ID</th>
             <th>Имя</th>
-            <th>Цена</th>
+            <th>Цена, $</th>
             <th>Кол-во на складе</th>
         </tr>
         <tr th:each="elec:${elecs}">
@@ -37,7 +37,7 @@
         <tr>
             <th>ID</th>
             <th>Имя</th>
-            <th>Цена</th>
+            <th>Цена, $/мес </th>
             <th>Гб</th>
             <th>Мин</th>
         </tr>

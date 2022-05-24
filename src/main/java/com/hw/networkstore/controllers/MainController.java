@@ -27,14 +27,14 @@ public class MainController {
     }
 
     @PostMapping({"", "/","index"})
-    public String mainPagePurchase(@RequestParam Long eid, @RequestParam String eamount, Model model){
-        if( eid!= null) {
+    public String mainPagePurchase(@RequestParam Long eid, @RequestParam int eamount, Model model){
+        if(eid!= null) {
             Electronics electronics = new Electronics();
+            electronics.setAmount(eamount);
             electronics.setId(eid);
-            electronics.setName(eamount);
-            electronicsService.addElectronics(electronics);
+            electronicsService.buyElectronics(electronics);
         }
-        return "index";
+        return "redirect:/";
     }
 
 }
