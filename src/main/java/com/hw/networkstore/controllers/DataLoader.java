@@ -33,9 +33,6 @@ public class DataLoader implements ApplicationRunner {
     private final NetworkPlan networkPlan3 = new NetworkPlan("Разговор+", 150, 10, 800);
     private final NetworkPlan networkPlan4 = new NetworkPlan("ДоСвязи", 50, 3, 200);
 
-    private final PurchaseHistory purchaseHistory1 = new PurchaseHistory(new Date(),"Microwolnowka");
-    private final PurchaseHistory purchaseHistory2 = new PurchaseHistory(new Date(),"Iphone 13");
-
     @Autowired
     public DataLoader(NetworkPlanService networkPlanService, ElectronicsService electronicsService, PurchaseHistoryService purchaseHistoryService){
         this.networkPlanService = networkPlanService;
@@ -56,7 +53,5 @@ public class DataLoader implements ApplicationRunner {
         networkPlanService.addNetworkPlan(networkPlan3);
         networkPlanService.addNetworkPlan(networkPlan4);
 
-        purchaseHistoryService.addPurchase(purchaseHistory1);
-        purchaseHistoryService.addPurchase(purchaseHistory2);
     }
 }

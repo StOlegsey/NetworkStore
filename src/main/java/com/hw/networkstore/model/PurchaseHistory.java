@@ -15,11 +15,14 @@ public class PurchaseHistory {
 
     private Date date;
 
+    private int amount;
+
     private String name;
 
-    public PurchaseHistory(Date date, String name) {
+    public PurchaseHistory(Date date, String name, int amount) {
         this.date = date;
         this.name = name;
+        this.amount = amount;
     }
 
     public PurchaseHistory() {
@@ -48,4 +51,8 @@ public class PurchaseHistory {
     public void setName(String name) {
         this.name = name;
     }
+
+    public int getAmount() {return amount;}
+
+    public void setAmount(int amount) {this.amount = amount;}
 }

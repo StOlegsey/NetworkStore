@@ -27,8 +27,8 @@
     </table>
     <br>
     <form action="" method="post">
-        <input type="text" name="eid" placeholder="ID товара" class="form-control">
-        <input type="text" name="eamount" placeholder="Количество" class="form-control">
+        <input type="number" name="eid" placeholder="ID товара" class="form-control">
+        <input type="number" name="eamount" placeholder="Количество" class="form-control">
         <button type = "submit" class="btn btn-success">Купить</button>
     </form>
     <h2>Тарифы</h2>
@@ -50,6 +50,11 @@
             <td th:text="${plan.mins}">Мин</td>
         </tr>
     </table>
+    <br>
+    <form action="" method="post">
+        <input type="number" name="pid" placeholder="ID тарифа" class="form-control">
+        <button type = "submit" class="btn btn-success">Купить</button>
+    </form>
 
 </body>
 </html>

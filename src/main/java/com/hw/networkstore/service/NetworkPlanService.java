@@ -2,15 +2,21 @@ package com.hw.networkstore.service;
 
 import com.hw.networkstore.model.NetworkPlan;
 import com.hw.networkstore.repos.NetworkPlanRepository;
-import org.aspectj.weaver.NewConstructorTypeMunger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.NoSuchElementException;
 
 @Service
 public class NetworkPlanService {
 
     @Autowired
     private NetworkPlanRepository networkPlanRepository;
+    private PurchaseHistoryService purchaseHistoryService;
+
+    public NetworkPlanService(PurchaseHistoryService purchaseHistoryService) {
+        this.purchaseHistoryService = purchaseHistoryService;
+    }
 
     public NetworkPlan addNetworkPlan(NetworkPlan networkPlan){
 
@@ -23,5 +29,15 @@ public class NetworkPlanService {
         Iterable<NetworkPlan> networkPlans= networkPlanRepository.findAll();
 
         return networkPlans;
+    }
+
+    public NetworkPlan buyNetworkPlan(NetworkPlan networkPlan){
+
+        NetworkPlan networkPlanById = networkPlanRepository.findById(networkPlan.getId()).orElseThrow(() -> new NoSuchElementException());
+
+        networkPlan.setName(networkPlanById.getName());
+        purchaseHistoryService.addNetworkPlan(networkPlan);
+
+        return networkPlan;
     }
 }

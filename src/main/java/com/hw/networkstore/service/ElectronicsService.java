@@ -5,15 +5,18 @@ import com.hw.networkstore.repos.ElectronicsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Optional;
 
 @Service
 public class ElectronicsService {
 
     @Autowired
     private ElectronicsRepository electronicsRepository;
+    private PurchaseHistoryService purchaseHistoryService;
+
+    public ElectronicsService(PurchaseHistoryService purchaseHistoryService) {
+        this.purchaseHistoryService = purchaseHistoryService;
+    }
 
     public Electronics addElectronics(Electronics electronics){
         electronics = electronicsRepository.save(electronics);
@@ -34,6 +37,8 @@ public class ElectronicsService {
         if(electronicsById.getAmount()>=electronics.getAmount()){
             electronicsById.setAmount(electronicsById.getAmount() - electronics.getAmount());
             addElectronics(electronicsById);
+            electronics.setName(electronicsById.getName());
+            purchaseHistoryService.addElectronics(electronics);
         }
 
          return electronics;

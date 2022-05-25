@@ -1,5 +1,6 @@
 package com.hw.networkstore.controllers;
 import com.hw.networkstore.model.Electronics;
+import com.hw.networkstore.model.NetworkPlan;
 import com.hw.networkstore.service.ElectronicsService;
 import com.hw.networkstore.service.NetworkPlanService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,12 +28,19 @@ public class MainController {
     }
 
     @PostMapping({"", "/","index"})
-    public String mainPagePurchase(@RequestParam Long eid, @RequestParam int eamount, Model model){
+    public String mainPagePurchase(@RequestParam(required = false, name = "eid") Long eid, @RequestParam(required = false, name = "pid") Long pid, @RequestParam(required = false, name = "eamount") Integer eamount, Model model){
+        System.out.println("eid: "+eid+" eamount: "+eamount+" pid: "+pid);
         if(eid!= null) {
             Electronics electronics = new Electronics();
             electronics.setAmount(eamount);
             electronics.setId(eid);
             electronicsService.buyElectronics(electronics);
+        }
+
+        if(pid != null){
+            NetworkPlan networkPlan = new NetworkPlan();
+            networkPlan.setId(pid);
+            networkPlanService.buyNetworkPlan(networkPlan);
         }
         return "redirect:/";
     }
