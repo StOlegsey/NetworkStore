@@ -3,15 +3,9 @@ package com.hw.networkstore.model;
 import javax.persistence.*;
 
 @Entity
-public class Electronics {
+public class Electronics extends BaseEntity{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    private String name;
     private int amount;
-    private int price;
 
     public Electronics(String name, int amount, int price) {
         super();
@@ -24,22 +18,6 @@ public class Electronics {
 
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public int getAmount() {
         return amount;
     }
@@ -48,11 +26,4 @@ public class Electronics {
         this.amount = amount;
     }
 
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
 }

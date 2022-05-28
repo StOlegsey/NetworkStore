@@ -1,5 +1,7 @@
 package com.hw.networkstore.service;
 
+import com.fasterxml.jackson.databind.ser.Serializers;
+import com.hw.networkstore.model.BaseEntity;
 import com.hw.networkstore.model.Electronics;
 import com.hw.networkstore.model.NetworkPlan;
 import com.hw.networkstore.model.PurchaseHistory;
