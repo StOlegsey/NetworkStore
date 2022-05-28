@@ -29,12 +29,17 @@ public class MainController {
 
     @PostMapping({"", "/","index"})
     public String mainPagePurchase(@RequestParam(required = false, name = "eid") Long eid, @RequestParam(required = false, name = "pid") Long pid, @RequestParam(required = false, name = "eamount") Integer eamount, Model model){
-        System.out.println("eid: "+eid+" eamount: "+eamount+" pid: "+pid);
         if(eid!= null) {
             Electronics electronics = new Electronics();
             electronics.setAmount(eamount);
             electronics.setId(eid);
-            electronicsService.buyElectronics(electronics);
+            Electronics electronicsFind = electronicsService.buyElectronics(electronics);
+
+            //System.out.println(electronics.getAmount()+" - electronics finish; "+ electronicsFind.getAmount()+" - electronics Find");
+
+            if(electronicsFind==null){
+                return "redirect:/error";
+            }
         }
 
         if(pid != null){

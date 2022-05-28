@@ -39,8 +39,10 @@ public class ElectronicsService {
             addElectronics(electronicsById);
             electronics.setName(electronicsById.getName());
             purchaseHistoryService.addElectronics(electronics);
+
+            return electronicsById;
         }
 
-         return electronics;
+         return null;
     }
 }
