@@ -36,7 +36,7 @@ public class NetworkPlanService {
         NetworkPlan networkPlanById = networkPlanRepository.findById(networkPlan.getId()).orElseThrow(() -> new NoSuchElementException());
 
         networkPlan.setName(networkPlanById.getName());
-        purchaseHistoryService.addNetworkPlan(networkPlan);
+        purchaseHistoryService.addPurchase(networkPlan);
 
         return networkPlan;
     }

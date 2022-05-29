@@ -1,6 +1,5 @@
 package com.hw.networkstore.service;
 
-import com.fasterxml.jackson.databind.ser.Serializers;
 import com.hw.networkstore.model.BaseEntity;
 import com.hw.networkstore.model.Electronics;
 import com.hw.networkstore.model.NetworkPlan;
@@ -17,18 +16,17 @@ public class PurchaseHistoryService {
     @Autowired
     private PurchaseHistoryRepository purchaseHistoryRepository;
 
-    public PurchaseHistory addElectronics(Electronics electronics){
+    public PurchaseHistory addPurchase(BaseEntity baseEntity){
 
-        PurchaseHistory purchaseHistory = new PurchaseHistory(new Date(), electronics.getName(), electronics.getAmount());
+        int amount = 1;
 
-        purchaseHistory = purchaseHistoryRepository.save(purchaseHistory);
+        if(baseEntity.getClass().getName()=="com.hw.networkstore.model.Electronics"){
 
-        return purchaseHistory;
-    }
+            Electronics electronics = (Electronics) baseEntity;
+            amount=electronics.getAmount();
+        }
 
-    public PurchaseHistory addNetworkPlan(NetworkPlan networkPlan){
-
-        PurchaseHistory purchaseHistory = new PurchaseHistory(new Date(), networkPlan.getName(), 1);
+        PurchaseHistory purchaseHistory = new PurchaseHistory(new Date(), baseEntity.getName(), amount);
 
         purchaseHistory = purchaseHistoryRepository.save(purchaseHistory);
 

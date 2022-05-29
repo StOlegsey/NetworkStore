@@ -35,8 +35,6 @@ public class MainController {
             electronics.setId(eid);
             Electronics electronicsFind = electronicsService.buyElectronics(electronics);
 
-            //System.out.println(electronics.getAmount()+" - electronics finish; "+ electronicsFind.getAmount()+" - electronics Find");
-
             if(electronicsFind==null){
                 return "redirect:/error";
             }

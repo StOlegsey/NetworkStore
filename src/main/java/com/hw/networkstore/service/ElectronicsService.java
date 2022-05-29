@@ -38,7 +38,7 @@ public class ElectronicsService {
             electronicsById.setAmount(electronicsById.getAmount() - electronics.getAmount());
             addElectronics(electronicsById);
             electronics.setName(electronicsById.getName());
-            purchaseHistoryService.addElectronics(electronics);
+            purchaseHistoryService.addPurchase(electronics);
 
             return electronicsById;
         }
