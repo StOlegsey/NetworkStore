@@ -3,6 +3,7 @@ package com.hw.networkstore.model;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "electronics")
 public class Electronics extends BaseEntity{
 
     private int amount;

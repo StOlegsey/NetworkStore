@@ -1,8 +1,10 @@
 package com.hw.networkstore.model;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "networkplan")
 public class NetworkPlan extends BaseEntity{
 
     private int gbs;

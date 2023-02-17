@@ -1,12 +1,10 @@
 package com.hw.networkstore.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@Table(name = "purchasehistory")
 public class PurchaseHistory {
 
     @Id

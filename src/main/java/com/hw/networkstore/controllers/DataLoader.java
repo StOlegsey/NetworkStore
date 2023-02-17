@@ -1,4 +1,4 @@
-package com.hw.networkstore.controllers;
+/*package com.hw.networkstore.controllers;
 
 import com.hw.networkstore.model.Electronics;
 import com.hw.networkstore.model.NetworkPlan;
@@ -54,4 +54,4 @@ public class DataLoader implements ApplicationRunner {
         networkPlanService.addNetworkPlan(networkPlan4);
 
     }
-}
+}*/
