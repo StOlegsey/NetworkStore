@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.Inet4Address;
+
 @Controller
 public class MainController {
 
@@ -28,8 +30,11 @@ public class MainController {
     }
 
     @PostMapping({"", "/","index"})
-    public String mainPagePurchase(@RequestParam(required = false, name = "eid") Long eid, @RequestParam(required = false, name = "pid") Long pid, @RequestParam(required = false, name = "eamount") Integer eamount, Model model){
-        if(eid!= null) {
+    public String mainPagePurchase(@RequestParam(required = false, name = "eid") Integer eid, @RequestParam(required = false, name = "pid") Integer pid, @RequestParam(required = false, name = "eamount") Integer eamount, Model model){
+
+        System.out.println("eid "+eid);
+        System.out.println("pid"+pid);
+        if(eid != null) {
             Electronics electronics = new Electronics();
             electronics.setAmount(eamount);
             electronics.setId(eid);

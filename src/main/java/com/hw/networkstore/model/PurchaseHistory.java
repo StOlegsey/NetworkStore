@@ -1,21 +1,30 @@
 package com.hw.networkstore.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "purchasehistory")
+@Setter
+@Getter
 public class PurchaseHistory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    int id;
 
+    @Column(name = "name", nullable = false, length = 100)
+    private String name;
+    @Column(name = "amount", nullable = false, length = 30)
+    private int amount;
+    @Column(name = "date", nullable = false, length = 30)
     private Date date;
 
-    private int amount;
-
-    private String name;
+    @Column(name = "user_id", nullable = false, length = 30)
+    private int user_id;
 
     public PurchaseHistory(Date date, String name, int amount) {
         this.date = date;
@@ -23,34 +32,8 @@ public class PurchaseHistory {
         this.amount = amount;
     }
 
-    public PurchaseHistory() {
+    public PurchaseHistory(){
+
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getAmount() {return amount;}
-
-    public void setAmount(int amount) {this.amount = amount;}
 }

@@ -6,5 +6,5 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PurchaseHistoryRepository extends JpaRepository<PurchaseHistory, Long> {
+public interface PurchaseHistoryRepository extends JpaRepository<PurchaseHistory, Integer> {
 }
