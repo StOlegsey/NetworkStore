@@ -16,7 +16,7 @@ public class PurchaseHistoryService {
     @Autowired
     private PurchaseHistoryRepository purchaseHistoryRepository;
 
-    public PurchaseHistory addPurchase(BaseEntity baseEntity){
+    public PurchaseHistory addPurchase(BaseEntity baseEntity, Integer user_id){
 
         int amount = 1;
 
@@ -26,7 +26,7 @@ public class PurchaseHistoryService {
             amount=electronics.getAmount();
         }
 
-        PurchaseHistory purchaseHistory = new PurchaseHistory(new Date(), baseEntity.getName(), amount);
+        PurchaseHistory purchaseHistory = new PurchaseHistory(new Date(), baseEntity.getName(), amount, user_id);
 
         purchaseHistory = purchaseHistoryRepository.save(purchaseHistory);
 

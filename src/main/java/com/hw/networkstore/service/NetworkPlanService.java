@@ -31,12 +31,12 @@ public class NetworkPlanService {
         return networkPlans;
     }
 
-    public NetworkPlan buyNetworkPlan(NetworkPlan networkPlan){
+    public NetworkPlan buyNetworkPlan(NetworkPlan networkPlan, Integer user_id){
 
         NetworkPlan networkPlanById = networkPlanRepository.findById(networkPlan.getId()).orElseThrow(() -> new NoSuchElementException());
 
         networkPlan.setName(networkPlanById.getName());
-        purchaseHistoryService.addPurchase(networkPlan);
+        purchaseHistoryService.addPurchase(networkPlan, user_id);
 
         return networkPlan;
     }

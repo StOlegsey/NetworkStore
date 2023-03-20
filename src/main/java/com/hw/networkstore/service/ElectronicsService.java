@@ -30,7 +30,7 @@ public class ElectronicsService {
         return electronics;
     }
 
-    public Electronics buyElectronics(Electronics electronics){
+    public Electronics buyElectronics(Electronics electronics, Integer user_id){
 
         Electronics electronicsById = electronicsRepository.findById(electronics.getId()).orElseThrow(() -> new NoSuchElementException());
 
@@ -38,7 +38,7 @@ public class ElectronicsService {
             electronicsById.setAmount(electronicsById.getAmount() - electronics.getAmount());
             addElectronics(electronicsById);
             electronics.setName(electronicsById.getName());
-            purchaseHistoryService.addPurchase(electronics);
+            purchaseHistoryService.addPurchase(electronics, user_id);
 
             return electronicsById;
         }

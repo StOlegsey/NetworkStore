@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 <head>
     <meta charset="UTF-8">
     <title>Связной</title>
@@ -10,6 +11,7 @@
     </style>
 </head>
 <body>
+    <h3 align="right" th:inline="text">Привет, <span th:remove="tag" sec:authentication="name">thymeleaf</span>!</h3>
     <h2>Товары</h2>
     <table>
         <tr>
@@ -55,6 +57,5 @@
         <input type="number" name="pid" placeholder="ID тарифа" class="form-control">
         <button type = "submit" class="btn btn-success">Купить</button>
     </form>
-
 </body>
 </html>

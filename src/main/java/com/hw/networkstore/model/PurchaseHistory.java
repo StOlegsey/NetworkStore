@@ -26,10 +26,11 @@ public class PurchaseHistory {
     @Column(name = "user_id", nullable = false, length = 30)
     private int user_id;
 
-    public PurchaseHistory(Date date, String name, int amount) {
+    public PurchaseHistory(Date date, String name, int amount, int user_id) {
         this.date = date;
         this.name = name;
         this.amount = amount;
+        this.user_id = user_id;
     }
 
     public PurchaseHistory(){
