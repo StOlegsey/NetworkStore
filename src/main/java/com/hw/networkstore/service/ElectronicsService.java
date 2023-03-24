@@ -26,8 +26,7 @@ public class ElectronicsService {
     }
 
     public Iterable<Electronics> getAllElectronics(){
-        Iterable<Electronics> electronics=  electronicsRepository.findAll();
-
+        Iterable<Electronics> electronics=  electronicsRepository.findAll(Sort.by("id"));
         return electronics;
     }
 
@@ -40,7 +39,6 @@ public class ElectronicsService {
             addElectronics(electronicsById);
             electronics.setName(electronicsById.getName());
             purchaseHistoryService.addPurchase(electronics, user_id);
-            electronicsRepository.findAll(Sort.by("id"));
             return electronicsById;
         }
 
