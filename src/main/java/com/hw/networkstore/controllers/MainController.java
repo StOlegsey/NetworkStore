@@ -38,10 +38,8 @@ public class MainController {
     @GetMapping({"", "/"})
     public String mainPage(@AuthenticationPrincipal CustomUserDetails customUserDetails, Model model){
 
-        System.out.println("user_id: "+customUserDetails.getId());
         model.addAttribute("elecs", electronicsService.getAllElectronics());
         model.addAttribute("plans", networkPlanService.getAllPlans());
-        model.addAttribute("user", customUserDetails);
         return "index";
     }
 
@@ -50,10 +48,7 @@ public class MainController {
 
         Integer user_id = customUserDetails.getId();
 
-        System.out.println("eid: "+eid);
-        System.out.println("pid: "+pid);
-        System.out.println("user_id: "+user_id);
-
+        eamount = 1;
         if(eid != null) {
             Electronics electronics = new Electronics();
             electronics.setAmount(eamount);

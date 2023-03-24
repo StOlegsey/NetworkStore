@@ -2,60 +2,334 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 <head>
-    <meta charset="UTF-8">
-    <title>Связной</title>
-    <style>
-        body{
-            margin-left: 40%;
-        }
-    </style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Shop Homepage - Start Bootstrap Template</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
 </head>
 <body>
-    <h3 align="right" th:inline="text">Привет, <span th:remove="tag" sec:authentication="name">thymeleaf</span>!</h3>
-    <h2>Товары</h2>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Имя</th>
-            <th>Цена, $</th>
-            <th>Кол-во на складе</th>
-        </tr>
-        <tr th:each="elec:${elecs}">
-            <td th:text="${elec.id}">ID</td>
-            <td th:text="${elec.name}">Название</td>
-            <td th:text="${elec.price}">Цена</td>
-            <td th:text="${elec.amount}">Кол-во</td>
-        </tr>
-    </table>
-    <br>
-    <form action="" method="post">
-        <input type="number" name="eid" placeholder="ID товара" class="form-control">
-        <input type="number" name="eamount" placeholder="Количество" class="form-control">
-        <button type = "submit" class="btn btn-success">Купить</button>
-    </form>
-    <h2>Тарифы</h2>
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="/">Связной</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Каталог</a></li>
+                <li class="nav-item"><a class="nav-link" href="/lk">Личный кабинет</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Категории</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item">Категории</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item">Популярное</a></li>
+                        <li><a class="dropdown-item">Новинки</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="d-flex">
+                <a class="btn btn-outline-dark" href="/lk">
+                    <i class="bi-cart-fill me-1" href="/lk"></i>
+                    Корзина
+                </a>
+            </form>
+        </div>
+    </div>
+</nav>
+<!-- Header-->
+<header class="bg-dark py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">Каталог товаров</h1>
+            <p class="lead fw-normal text-white-50 mb-0">Электроника</p>
+        </div>
+    </div>
+</header>
+<!-- Section-->
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img class="card-img-top" style="height:150px" src="https://thumbs.dreamstime.com/b/microwave-oven-grey-background-no-brand-microwave-oven-silver-slightly-open-light-grey-background-109996593.jpg" alt="..." />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder" th:text="${elecs[0].name}"></h5>
+                            <!-- Product price-->
+                            <p><span th:text="${elecs[0].price}"></span> руб.</p>
+                            Осталось <span th:text="${elecs[0].amount}"></span> шт.
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <form action="" method="post" class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
+                        <button class="btn btn-outline-dark mt-auto text-center" name = "eid" value="1" type = "submit">
+                            Купить
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Sale badge-->
+                    <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                    <!-- Product image-->
+                    <img class="card-img-top" style="height:150px" src="https://s0.rbk.ru/v6_top_pics/media/img/0/64/756629830857640.webp" alt="..." />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder" th:text="${elecs[1].name}"></h5>
+                            <!-- Product reviews-->
+                            <div class="d-flex justify-content-center small text-warning mb-2">
+                                <div class="bi-star-fill"></div>
+                                <div class="bi-star-fill"></div>
+                                <div class="bi-star-fill"></div>
+                                <div class="bi-star-fill"></div>
+                                <div class="bi-star-fill"></div>
+                            </div>
+                            <!-- Product price-->
+                            <p><span class="text-muted text-decoration-line-through">1999 руб.</span> <span th:text="${elecs[1].price}"></span> руб.</p>
+                            Осталось <span th:text="${elecs[1].amount}"></span> шт.
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <form action="" method="post" class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
+                        <button class="btn btn-outline-dark mt-auto text-center" name = "eid" value="2" type = "submit">
+                            Купить
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Sale badge-->
+                    <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                    <!-- Product image-->
+                    <img class="card-img-top" style="height:150px" src="https://moneyinc.com/wp-content/uploads/2020/03/shutterstock_1080200909-1-e1583507156602.jpg" alt="..." />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder" th:text="${elecs[2].name}"></h5>
+                            <!-- Product reviews-->
+                            <div class="d-flex justify-content-center small text-warning mb-2">
+                                <div class="bi-star-fill"></div>
+                                <div class="bi-star-fill"></div>
+                                <div class="bi-star-fill"></div>
+                                <div class="bi-star-fill"></div>
+                                <div class="bi-star-fill"></div>
+                            </div>
+                            <!-- Product price-->
+                            <p><span class="text-muted text-decoration-line-through">1999 руб.</span> <span th:text="${elecs[2].price}"></span> руб.</p>
+                            Осталось <span th:text="${elecs[2].amount}"></span> шт.
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <form action="" method="post" class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
+                        <button class="btn btn-outline-dark mt-auto text-center" name = "eid" value="3" type = "submit">
+                            Купить
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img class="card-img-top" style="height:150px" src="https://bytwork.com/sites/default/files/images/news/3000_seriya_nvidia.jpg" alt="..." />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder" th:text="${elecs[3].name}"></h5>
+                            <!-- Product price-->
+                            <p><span th:text="${elecs[3].price}"></span> руб.</p>
+                            Осталось <span th:text="${elecs[3].amount}"></span> шт.
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <form action="" method="post" class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
+                        <button class="btn btn-outline-dark mt-auto text-center" name = "eid" value="4" type = "submit">
+                            Купить
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Sale badge-->
+                    <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                    <!-- Product image-->
+                    <img class="card-img-top" style="height:150px" src="https://www.coffeeb.com/media/6b/07/f9/1660029119/Hero_Element_Machine_Default_1440x808.jpg" alt="..." />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder" th:text="${elecs[4].name}"></h5>
+                            <!-- Product price-->
+                            <p><span th:text="${elecs[4].price}"></span> руб.</p>
+                            Осталось <span th:text="${elecs[4].amount}"></span> шт.
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <form action="" method="post" class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
+                        <button class="btn btn-outline-dark mt-auto text-center" name = "eid" value="5" type = "submit">
+                            Купить
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img class="card-img-top" style="height:150px" src="https://www.online-tech-tips.com/wp-content/uploads/2021/12/0-Title-Image.jpg" alt="..." />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder" th:text="${elecs[5].name}"></h5>
+                            <!-- Product price-->
+                            <p><span th:text="${elecs[5].price}"></span> руб.</p>
+                            Осталось <span th:text="${elecs[5].amount}"></span> шт.
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <form action="" method="post" class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
+                        <button class="btn btn-outline-dark mt-auto text-center" name = "eid" value="6" type = "submit">
+                            Купить
+                        </button>
+                    </form>
+                </div>
+            </div>
 
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Имя</th>
-            <th>Цена, $/мес </th>
-            <th>Гб</th>
-            <th>Мин</th>
-        </tr>
 
-        <tr th:each="plan:${plans}">
-            <td th:text="${plan.id}">ID</td>
-            <td th:text="${plan.name}">Название</td>
-            <td th:text="${plan.price}">Цена</td>
-            <td th:text="${plan.gbs}">Гб</td>
-            <td th:text="${plan.mins}">Мин</td>
-        </tr>
-    </table>
-    <br>
-    <form action="" method="post">
-        <input type="number" name="pid" placeholder="ID тарифа" class="form-control">
-        <button type = "submit" class="btn btn-success">Купить</button>
-    </form>
+        </div>
+    </div>
+</section>
+
+<div class="bg-dark py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h3 class="display-4 fw-bolder">Тарифы</h3>
+        </div>
+    </div>
+</div>
+
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img class="card-img-top" src="http://cdn.shopify.com/s/files/1/2532/3934/articles/SIM-Card-Size.jpg?v=1626241700" alt="..." />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder" th:text="${plans[0].name}"></h5>
+                            <!-- Product price-->
+                            <p><span th:text="${plans[0].price}"></span> руб.</p>
+                            <p><span th:text="${plans[0].gbs}"></span> Гб.</p>
+                            <span th:text="${plans[0].mins}"></span> Мин.
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <form action="" method="post" class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
+                        <button class="btn btn-outline-dark mt-auto text-center" name = "pid" value="1" type = "submit">
+                            Купить
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img class="card-img-top" src="http://cdn.shopify.com/s/files/1/2532/3934/articles/SIM-Card-Size.jpg?v=1626241700" alt="..." />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder" th:text="${plans[1].name}"></h5>
+                            <!-- Product price-->
+                            <p><span th:text="${plans[1].price}"></span> руб.</p>
+                            <p><span th:text="${plans[1].gbs}"></span> Гб.</p>
+                            <span th:text="${plans[1].mins}"></span> Мин.
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <form action="" method="post" class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
+                        <button class="btn btn-outline-dark mt-auto text-center" name = "pid" value="2" type = "submit">
+                            Купить
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img class="card-img-top" src="http://cdn.shopify.com/s/files/1/2532/3934/articles/SIM-Card-Size.jpg?v=1626241700" alt="..." />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder" th:text="${plans[2].name}"></h5>
+                            <!-- Product price-->
+                            <p><span th:text="${plans[2].price}"></span> руб.</p>
+                            <p><span th:text="${plans[2].gbs}"></span> Гб.</p>
+                            <span th:text="${plans[2].mins}"></span> Мин.
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <form action="" method="post" class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
+                        <button class="btn btn-outline-dark mt-auto text-center" name = "pid" value="3" type = "submit">
+                            Купить
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img class="card-img-top" src="http://cdn.shopify.com/s/files/1/2532/3934/articles/SIM-Card-Size.jpg?v=1626241700" alt="..." />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder" th:text="${plans[3].name}"></h5>
+                            <!-- Product price-->
+                            <p><span th:text="${plans[3].price}"></span> руб.</p>
+                            <p><span th:text="${plans[3].gbs}"></span> Гб.</p>
+                            <span th:text="${plans[3].mins}"></span> Мин.
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+
+                    <form action="" method="post" class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
+                        <button class="btn btn-outline-dark mt-auto text-center" name = "pid" value="4" type = "submit">
+                            Купить
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Footer-->
+<footer class="py-5 bg-dark">
+    <div class="container"><p class="m-0 text-center text-white">2023, ВГУИТ  Гнедых Михаил</p></div>
+</footer>
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="js/scripts.js"></script>
 </body>
 </html>

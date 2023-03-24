@@ -3,6 +3,7 @@ package com.hw.networkstore.service;
 import com.hw.networkstore.model.Electronics;
 import com.hw.networkstore.repos.ElectronicsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.NoSuchElementException;
@@ -34,12 +35,12 @@ public class ElectronicsService {
 
         Electronics electronicsById = electronicsRepository.findById(electronics.getId()).orElseThrow(() -> new NoSuchElementException());
 
-        if(electronicsById.getAmount()>=electronics.getAmount()){
+        if(electronicsById.getAmount() >= electronics.getAmount()){
             electronicsById.setAmount(electronicsById.getAmount() - electronics.getAmount());
             addElectronics(electronicsById);
             electronics.setName(electronicsById.getName());
             purchaseHistoryService.addPurchase(electronics, user_id);
-
+            electronicsRepository.findAll(Sort.by("id"));
             return electronicsById;
         }
 
