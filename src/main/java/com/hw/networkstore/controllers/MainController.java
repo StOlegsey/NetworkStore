@@ -6,6 +6,7 @@ import com.hw.networkstore.repos.UserRepository;
 import com.hw.networkstore.service.CustomUserDetails;
 import com.hw.networkstore.service.ElectronicsService;
 import com.hw.networkstore.service.NetworkPlanService;
+import com.hw.networkstore.service.PurchaseHistoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -14,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.criteria.CriteriaBuilder;
+import java.sql.SQLOutput;
 import java.util.Collections;
 import java.util.List;
 
@@ -22,14 +24,16 @@ public class MainController {
 
     private final ElectronicsService electronicsService;
     private final NetworkPlanService networkPlanService;
+    private final PurchaseHistoryService purchaseHistoryService;
     private final RoleRepository roleRepository;
     private final UserRepository userRepository;
     private final PurchaseHistoryRepository purchaseHistoryRepository;
 
     @Autowired
-    public MainController(ElectronicsService electronicsService, NetworkPlanService networkPlanService, RoleRepository roleRepository, UserRepository userRepository, PurchaseHistoryRepository purchaseHistoryRepository){
+    public MainController(ElectronicsService electronicsService, NetworkPlanService networkPlanService, PurchaseHistoryService purchaseHistoryService, RoleRepository roleRepository, UserRepository userRepository, PurchaseHistoryRepository purchaseHistoryRepository){
         this.electronicsService = electronicsService;
         this.networkPlanService = networkPlanService;
+        this.purchaseHistoryService = purchaseHistoryService;
         this.roleRepository = roleRepository;
         this.userRepository = userRepository;
         this.purchaseHistoryRepository = purchaseHistoryRepository;
@@ -73,6 +77,14 @@ public class MainController {
         model.addAttribute("user", new User());
 
         return "signup_form";
+    }
+
+    @PostMapping("/lk")
+    public String buyFromCart(@RequestParam(required = true, name = "id") Integer id)
+    {
+        purchaseHistoryService.buyFromCart(id);
+
+        return "redirect:/";
     }
 
     @GetMapping("/lk")

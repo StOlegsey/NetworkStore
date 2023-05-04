@@ -55,17 +55,26 @@
     <div class="my-3 p-3  bg-light rounded box-shadow">
         <h6 class="border-bottom border-gray pb-2 mb-0">История покупок</h6>
         <div class="media text-muted pt-3" th:each="option: ${listOfUser}">
-            <img data-src="holder.js/32x32?theme=thumb&amp;bg=007bff&amp;fg=007bff&amp;size=1" alt="32x32" class="mr-2 rounded" style="width: 32px; height: 32px;" src="https://static.thenounproject.com/png/3132794-200.png" data-holder-rendered="true">
-            <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+
+            <form action="" method="post" class="bg-transparent float-start px-1">
+                <button class="btn btn-outline-dark" name = "id" th:value="${option.id}" type = "submit">
+                    Купить
+                </button>
+            </form>
+
+            <p class="media-body pb-3 mb-3 small lh-125 border-bottom border-gray float-right">
+                <img data-src="holder.js/32x32?theme=thumb&amp;bg=007bff&amp;fg=007bff&amp;size=1" alt="32x32" class="mr-2 rounded" style="width: 32px; height: 32px;" src="https://static.thenounproject.com/png/3132794-200.png" data-holder-rendered="true">
                 <strong class="d-block text-gray-dark" th:text="${option.name}"></strong>
-                Дата покупки: <span th:text="${option.date}"></span>
+                Дата добавления в корзину: <span th:text="${option.date}"></span>
             </p>
+
+
+
         </div>
         <small class="d-block text-right mt-3">
-            <a href="#">Выйти из аккаунта</a>
+            <a href="/login">Выйти из аккаунта</a>
         </small>
     </div>
-
 
 </main>
 

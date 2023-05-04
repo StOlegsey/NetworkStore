@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Shop Homepage - Start Bootstrap Template</title>
+    <title>Shop Homepage</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Bootstrap icons-->
@@ -66,14 +66,15 @@
                             <!-- Product name-->
                             <h5 class="fw-bolder" th:text="${elecs[0].name}"></h5>
                             <!-- Product price-->
-                            <p><span th:text="${elecs[0].price}"></span> руб.</p>
+                            <p><span th:text="${elecs[0].price}"></span> $</p>
+                            <p><span class="text-muted">120Вт; 12 режимов</span></p>
                             Осталось <span th:text="${elecs[0].amount}"></span> шт.
                         </div>
                     </div>
                     <!-- Product actions-->
                     <form action="" method="post" class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
                         <button class="btn btn-outline-dark mt-auto text-center" name = "eid" value="1" type = "submit">
-                            Купить
+                            В корзину
                         </button>
                     </form>
                 </div>
@@ -98,14 +99,15 @@
                                 <div class="bi-star-fill"></div>
                             </div>
                             <!-- Product price-->
-                            <p><span class="text-muted text-decoration-line-through">1999 руб.</span> <span th:text="${elecs[1].price}"></span> руб.</p>
+                            <p><span class="text-muted text-decoration-line-through">1999$.</span> <span th:text="${elecs[1].price}"></span> $</p>
+                            <p><span class="text-muted">256Gb Memory; 16Gb RAM; A12 CPU</span></p>
                             Осталось <span th:text="${elecs[1].amount}"></span> шт.
                         </div>
                     </div>
                     <!-- Product actions-->
                     <form action="" method="post" class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
                         <button class="btn btn-outline-dark mt-auto text-center" name = "eid" value="2" type = "submit">
-                            Купить
+                            В корзину
                         </button>
                     </form>
                 </div>
@@ -130,14 +132,15 @@
                                 <div class="bi-star-fill"></div>
                             </div>
                             <!-- Product price-->
-                            <p><span class="text-muted text-decoration-line-through">1999 руб.</span> <span th:text="${elecs[2].price}"></span> руб.</p>
+                            <p><span class="text-muted text-decoration-line-through">1999$</span> <span th:text="${elecs[2].price}"></span> $</p>
+                            <p><span class="text-muted">Термостойкость 2 уровень; 120x60см</span></p>
                             Осталось <span th:text="${elecs[2].amount}"></span> шт.
                         </div>
                     </div>
                     <!-- Product actions-->
                     <form action="" method="post" class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
                         <button class="btn btn-outline-dark mt-auto text-center" name = "eid" value="3" type = "submit">
-                            Купить
+                            В корзину
                         </button>
                     </form>
                 </div>
@@ -152,14 +155,15 @@
                             <!-- Product name-->
                             <h5 class="fw-bolder" th:text="${elecs[3].name}"></h5>
                             <!-- Product price-->
-                            <p><span th:text="${elecs[3].price}"></span> руб.</p>
+                            <p><span th:text="${elecs[3].price}"></span> $</p>
+                            <p><span class="text-muted">20 ядер; Технология RTX, Geforce now</span></p>
                             Осталось <span th:text="${elecs[3].amount}"></span> шт.
                         </div>
                     </div>
                     <!-- Product actions-->
                     <form action="" method="post" class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
                         <button class="btn btn-outline-dark mt-auto text-center" name = "eid" value="4" type = "submit">
-                            Купить
+                            В корзину
                         </button>
                     </form>
                 </div>
@@ -176,14 +180,15 @@
                             <!-- Product name-->
                             <h5 class="fw-bolder" th:text="${elecs[4].name}"></h5>
                             <!-- Product price-->
-                            <p><span th:text="${elecs[4].price}"></span> руб.</p>
+                            <p><span th:text="${elecs[4].price}"></span> $</p>
+                            <p><span class="text-muted">4 режима работы; 200 мл</span></p>
                             Осталось <span th:text="${elecs[4].amount}"></span> шт.
                         </div>
                     </div>
                     <!-- Product actions-->
                     <form action="" method="post" class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
                         <button class="btn btn-outline-dark mt-auto text-center" name = "eid" value="5" type = "submit">
-                            Купить
+                            В корзину
                         </button>
                     </form>
                 </div>
@@ -198,14 +203,15 @@
                             <!-- Product name-->
                             <h5 class="fw-bolder" th:text="${elecs[5].name}"></h5>
                             <!-- Product price-->
-                            <p><span th:text="${elecs[5].price}"></span> руб.</p>
+                            <p><span th:text="${elecs[5].price}"></span> $</p>
+                            <p><span class="text-muted">128Гб; Синий цвет</span></p>
                             Осталось <span th:text="${elecs[5].amount}"></span> шт.
                         </div>
                     </div>
                     <!-- Product actions-->
                     <form action="" method="post" class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
                         <button class="btn btn-outline-dark mt-auto text-center" name = "eid" value="6" type = "submit">
-                            Купить
+                            В корзину
                         </button>
                     </form>
                 </div>
@@ -245,7 +251,7 @@
                     <!-- Product actions-->
                     <form action="" method="post" class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
                         <button class="btn btn-outline-dark mt-auto text-center" name = "pid" value="1" type = "submit">
-                            Купить
+                            В корзину
                         </button>
                     </form>
                 </div>
@@ -268,7 +274,7 @@
                     <!-- Product actions-->
                     <form action="" method="post" class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
                         <button class="btn btn-outline-dark mt-auto text-center" name = "pid" value="2" type = "submit">
-                            Купить
+                            В корзину
                         </button>
                     </form>
                 </div>
@@ -291,7 +297,7 @@
                     <!-- Product actions-->
                     <form action="" method="post" class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
                         <button class="btn btn-outline-dark mt-auto text-center" name = "pid" value="3" type = "submit">
-                            Купить
+                            В корзину
                         </button>
                     </form>
                 </div>
@@ -315,7 +321,7 @@
 
                     <form action="" method="post" class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
                         <button class="btn btn-outline-dark mt-auto text-center" name = "pid" value="4" type = "submit">
-                            Купить
+                            В корзину
                         </button>
                     </form>
                 </div>

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.Optional;
 
 @Service
 public class PurchaseHistoryService {
@@ -31,5 +32,11 @@ public class PurchaseHistoryService {
         purchaseHistory = purchaseHistoryRepository.save(purchaseHistory);
 
         return purchaseHistory;
+    }
+
+    public void buyFromCart(Integer id){
+
+        purchaseHistoryRepository.deleteById(id);
+
     }
 }
